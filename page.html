@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: url("img2 copy.jpg") no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px, 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 99;
+      }
+      .logo {
+        font-size: 2em;
+        font-weight: 900;
+        user-select: none;
+        
+      }
+      .navbar a {
+        position: relative;
+        font-size: 1.1em;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 50px;
+        color: black;
+      }
+      .navbar a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: black;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+      }
+      .navbar a:hover::after {
+        transform-origin: left;
+        transform: scaleX(1);
+      }
+
+      .navbar .btn {
+        margin: 10px;
+        width: 130px;
+        height: 50px;
+        background-color: transparent;
+        border: 2px solid black;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: 700;
+        margin-left: 50px;
+        transition: 0.5s;
+      }
+      .navbar .btn:hover {
+        background-color: black;
+        color: white;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      .wrapper {
+        position: relative;
+        width: 400px;
+        height: 440px;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      
+      .wrapper .form-box{
+        width: 100%;
+        padding: 40px;
+
+      }
+      .wrapper .icon-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+        background: black;
+        color: white;
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border-top-right-radius: 15px; */
+        border-bottom-left-radius: 20px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .form-box h2{
+        font-size: 2em;
+        color: black;
+        text-align: center;
+      }
+      .input-box{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border-bottom: 2px solid black;
+        margin: 30px 0;
+      }
+
+      .input-box label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        font-size: 1em;
+        color: black;
+        font-weight: 500;
+        transform:translateY(-50%);
+        pointer-events: none;
+        transition: .5s;
+       
+      }
+      .input-box input:focus~label,
+      .input-box input:valid~label{
+        top: -5px;
+      }
+      .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color: black;
+        font-weight: 600;
+        padding: 0 35px 0 5px;
+      }
+      .input-box .icon{
+        position: absolute;
+        right: 8px;
+        font-size: 1.2em;
+        line-height: 57px;
+      }
+      .forgot {
+        font-size: .9em;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        color: black;
+        margin: -15px 0 15px;
+        
+      }
+      .forgot label input{
+        accent-color: black;
+        margin-right: 5px ;
+      }
+      .forgot a{
+        text-decoration: none;
+        color: black;
+        
+        
+      }
+      .forgot a:hover{
+        text-decoration: underline;
+        font-weight: 600;
+        
+      }
+      .button{
+        width: 100%;
+        height: 45px;
+        background: black;
+        color: white;
+        font-size: 1.2em;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .register{
+        font-size: .9em;
+        color: black;
+        text-align: center;
+        font-weight: 500;
+        margin: 25px 0 10px;
+      }
+      .register p a{
+        text-decoration: none;
+        color: black;
+        /* font-weight: 600; */
+      }
+
+      .register p a:hover{
+        text-decoration: line-through;
+        font-weight: 600;
+      }
+
+    </style>
+
+    
+  </head>
+  <body>
+    <header>
+      <h2 class="logo">Logo</h2>
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contect</a>
+        <button class="btn">Login</button>
+      </nav>
+    </header>
+
+    
+    <div class="wrapper">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+      <div class="form-box login">
+        <h2>Login</h2>       
+        <form action="#">
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="mail"></ion-icon>
+            </span>
+                <input type="email" required />
+                <label >Email</label>    
+            </div>
+            
+            <div class="input-box">
+              <span class="icon">
+                <ion-icon name="lock"></ion-icon>
+              </span>
+              
+              <input type="password" required />
+              <label > Password</label>
+            </div>
+
+            <div class="forgot">
+              <label for=""><input type="checkbox" />Remember me</label>
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="button">Login</button>
+            <div class="register">
+              <p>
+                Don't have an account?
+                <a href="#" class="register-link">Register</a>
+              </p>
+            </div>
+          
+        </form>
+      </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>
